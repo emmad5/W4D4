@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    return redirect_to user_url(@current_user) if current_user
     render :new
   end
 

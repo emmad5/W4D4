@@ -40,6 +40,9 @@ before_action :require_logged_in
   end
 
   def destroy
+    band = Band.find(params[:id])
+    band.destroy
+    redirect_to bands_url
   end
 
   def band_params

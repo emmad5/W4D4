@@ -1,17 +1,19 @@
-<h3>This is the band's page.</h3>
-<br>
+<h2>This is the band's page.</h2>
 <br>
 Name:
 <%= @band.name %>
-
-
 <br>
 <br>
 <br>
-
 <form class="" action="<%= edit_band_url(@band) %>" method="get">
   <input type="hidden" name="authenticity_token" value='<%= form_authenticity_token %>'/>
-  <input type="submit" name="" value="Edit my band!">
+  <input type="submit" name="" value="Edit my band">
+</form>
+<br>
+<form class="" action="<%=band_url %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="authenticity_token" value='<%= form_authenticity_token %>'/>
+  <input type="submit" name="" value="Destroy my band">
 </form>
 <br>
 <br>

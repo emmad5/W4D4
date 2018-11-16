@@ -10,7 +10,6 @@
     <input type="text" name="band[name]" value="<%= @band.name %>">
   </label>
   <br>
-  <br>
   <input type="submit" name="" value="Edit Band">
 </form>
 
@@ -20,3 +19,6 @@
     <%= error %>
   <% end %>
 <% end %>
+<br>
+<br>
+<a href="<%= bands_url %>">Back to all bands</a>

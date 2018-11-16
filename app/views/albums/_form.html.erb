@@ -1,0 +1,55 @@
+
+<% if flash.now[:errors] %>
+<% flash.now[:errors].each do |error| %>
+  <%= error %>
+<% end %>
+<% end %>
+<br>
+<br>
+<% if action == :new_album %>
+  <% action_url = albums_url %>
+  <% submit = 'Create album now!' %>
+<% elsif action == :edit_album %>
+  <% action_url = album_url %>
+  <% submit = 'Edit album now!' %>
+<% end %>
+
+<form class="" action="<%= action_url %>" method="post">
+
+<% if action == :edit_album %>
+  <input type="hidden" name="_method" value="patch">
+<% end %>
+  <input type="hidden" name="authenticity_token" value='<%= form_authenticity_token %>'/>
+
+  <label>
+    Album Title:
+    <input type="text" name="album[title]" value="<% album.title %>">
+  </label>
+<br>
+<br>
+  <label>
+    Band:
+    <select class="" name="">
+      <% bands.each do |band| %>
+        <% if band_id == band.id.to_s %>
+          <option selected value="album[:band_id]"><%= band.name %></option>
+        <% else%>
+        <option value="album[:band_id]"><%= band.name %></option>
+        <% end %>
+      <% end %>
+    </select>
+  </label>
+  <br>
+  <br>
+
+
+  <br>
+  <br>
+  <input type="submit" name="" value="Create Album">
+</form>
+
+
+<br>
+<br>
+<br>
+<a href="<%= bands_url %>">Back to all bands?</a>

@@ -21,12 +21,12 @@
 
 body {
   text-align: center;
-  font-family: sans-serif;
+  font-family: 'Comfortaa', cursive;
 }
 
 input[type=submit] {
     padding:5px 10px;
-    background:gold;
+    background:darkorange;
     border:1px solid black;
     cursor: pointer;
     -webkit-border-radius: 5px;
@@ -36,9 +36,13 @@ input[type=submit] {
 a {
   color: black;
   padding:5px 10px;
-  background:gold;
+  background:darkorange;
   border:1px solid black;
   cursor: pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px;
+}
+
+a:hover {
+    background-color: gold;
 }
