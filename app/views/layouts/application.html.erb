@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <span class="nav_bar">
+
+  <h2>
+    Welcome to music_by_emma
+  </h2>
+
+  <% if current_user %>
+
+    <form class="" action="<%=session_url %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="hidden" name="authenticity_token" value='<%= form_authenticity_token %>'/>
+      <input type="submit" name="" value="Log Out!">
+    </form>
+  <% end %>
+
+  </span>
+
+  <body background="https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-903ea3cb.jpg">
+
+    <%= yield %>
+  </body>
+
+  <footer>
+  </footer>
+
+
+</html>

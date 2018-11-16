@@ -1,0 +1,73 @@
+
+<% if flash.now[:errors] %>
+<% flash.now[:errors].each do |error| %>
+  <%= error %>
+<% end %>
+<% end %>
+<br>
+<br>
+<% if action == :new_user %>
+  <% action_url = users_url %>
+  <% submit = 'Sign up now!' %>
+<% elsif action == :login_user %>
+  <% action_url = session_url %>
+  <% submit = 'Log in now!' %>
+<% end %>
+
+<form class="" action="<%= action_url %>" method="post">
+
+
+  <input
+   type="hidden"
+   name="authenticity_token"
+   value='<%= form_authenticity_token %>'
+ />
+
+<label>
+  Email:
+  <br>
+  <input type="text" name="user[email]" value="">
+</label>
+<br>
+<label>
+  Password:
+  <br>
+  <input type="password" name="user[password]" value="">
+</label>
+<br>
+<br>
+<input type="submit" name="" value="<%= submit %>">
+
+</form>
+<br>
+<br>
+<br>
+<% if action == :new_user %>
+  <form class="" action="<%= new_session_url %>" method="post">
+    <input type="hidden" name="_method" value="get">
+    <input
+  type="hidden"
+  name="authenticity_token"
+  value='<%= form_authenticity_token %>'
+/>
+
+    Already a User?
+    <br>
+    <input type="submit" name="" value="Let's Log In!">
+  </form>
+<br>
+
+<% elsif action == :login_user %>
+<form class="" action="<%= new_user_url %>" method="post">
+<input type="hidden" name="_method" value="get">
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value='<%= form_authenticity_token %>'
+  />
+
+  Not yet a user?
+  <br>
+  <input type="submit" name="" value="Let's Sign Up!">
+</form>
+<% end %>
